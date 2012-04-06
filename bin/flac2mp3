@@ -1,0 +1,63 @@
+#!/usr/bin/ruby
+# https://gist.github.com/1361100
+
+ID3_TAGS = {
+  "TITLE" => "tt",
+  "ARTIST" => "ta",
+  "ALBUM" => "tl",
+  "DATE" => "ty",
+  "GENRE" => "tg",
+  "TRACKNUMBER" => "tn",
+}
+CUSTOM_TAGS = {
+  "COMPOSER" => "TCOM",
+  "DISCNUMBER" => "TPOS",
+}
+
+#ARGV.each do|filename| 
+Dir["*.flac"].each do |filename|
+  abort "Usage: flac2mp3 FLACFILE" if filename.nil?
+
+  tags = Hash.new
+  custom = Hash.new
+  trackTotal = 0
+  discTotal = 0
+
+  `metaflac --export-tags-to=- "#{filename}"`.each_line do |s|
+    v=s.strip.split '=', 2
+    v[0].upcase!
+    v[1].gsub! '"', '\"'
+
+    if ID3_TAGS.has_key?(v[0])
+      tags[ID3_TAGS[v[0]]] = v[1]
+    elsif CUSTOM_TAGS.has_key?(v[0])
+      custom[CUSTOM_TAGS[v[0]]] = v[1]
+    elsif "TRACKTOTAL" == v[0]
+      trackTotal = v[1]
+    elsif "DISCTOTAL"
+      discTotal = v[1]
+    end
+  end
+
+  if tags.has_key?("tn") and 0 != trackTotal 
+    tags["tn"] += "/#{trackTotal}"
+  end
+  if custom.has_key?("TPOS") and 0 != discTotal
+    custom["TPOS"] += "/#{discTotal}"
+  end
+
+  id3args = ""
+  tags.each do |arg,val|
+    id3args += %Q[ --#{arg} "#{val}"] 
+  end
+  custom.each do |id,val|
+    id3args += %Q[ --tv "#{id}=#{val}"]
+  end
+
+  basename=File.basename(filename, File.extname(filename))
+  puts "Encoding #{basename}.mp3"
+  cmd = %Q[flac -sdc "#{filename}" | lame -V0 #{id3args} - "#{basename}.mp3"]
+  system cmd
+end
+
+
