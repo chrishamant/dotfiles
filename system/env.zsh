@@ -1,5 +1,0 @@
-export EDITOR='vim'
-export SVN_EDITOR=$EDITOR
-export LOAD_PATH=$LOAD_PATH
-export LC_CTYPE=en_US.UTF-8
-export MANPATH=$MANPATH

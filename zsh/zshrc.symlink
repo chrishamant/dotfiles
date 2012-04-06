@@ -1,6 +1,25 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
+export PATH="./bin:$ZSH/bin:$HOME/bin:~/.cabal/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+export EDITOR='vim'
+export SVN_EDITOR=$EDITOR
+export LOAD_PATH=$LOAD_PATH
+export LC_CTYPE=en_US.UTF-8
+export MANPATH=$MANPATH
+
+# grc overides for ls
+#   Made possible through contributions from generous benefactors like
+#   `brew install coreutils`
+if $(gls &>/dev/null)
+then
+  alias ls="gls -F --color"
+  alias l="gls -lAh --color"
+  alias ll="gls -l --color"
+  alias la='gls -A --color'
+fi
+
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/src
 

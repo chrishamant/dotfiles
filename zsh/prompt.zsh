@@ -40,14 +40,6 @@ need_push () {
   fi
 }
 
-rvm_prompt(){
-  if $(which rvm &> /dev/null)
-  then
-	  echo "%{$fg_bold[yellow]%}$(rvm tools identifier)%{$reset_color%}"
-	else
-	  echo ""
-  fi
-}
 
 # This keeps the number of todos always available the right hand side of my
 # command line. I filter it to only count those tagged as "+next", so it's more
@@ -72,7 +64,7 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\nλ '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
