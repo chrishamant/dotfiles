@@ -73,7 +73,8 @@ vnoremap <tab> %
 cmap w!! w !sudo tee % >/dev/null
 
 " split plz
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader><bar> <C-w>v<C-w>l
+nnoremap <leader>- :split<cr><C-w>k
 
 "NerdTree
 map <leader>n :NERDTreeToggle<cr>
