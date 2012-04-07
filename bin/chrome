@@ -1,4 +1,4 @@
 #! /bin/sh
-open /Applications/Google\ Chrome.app $*
+open ~/Applications/Google\ Chrome.app $*
 
 
