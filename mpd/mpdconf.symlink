@@ -1,0 +1,25 @@
+port                    "6600"
+music_directory         "~/.mpd/music"
+playlist_directory      "~/.mpd/playlists"
+db_file                 "~/.mpd/mpd.db"
+log_file                "~/.mpd/mpd.log"
+pid_file                "~/.mpd/mpd.pid"
+state_file              "~/.mpd/mpdstate"
+
+auto_update             "yes"
+
+audio_output {
+        type            "osx"
+        name            "macchiato"
+        mixer_type      "software"
+}
+
+audio_output {
+          type   "httpd"
+          name   "local stream"
+          encoder "lame"
+          port    "8000"
+          bitrate  "256"
+          format   "44100:16:2"  # change 2 to 1 for mono
+}
+
