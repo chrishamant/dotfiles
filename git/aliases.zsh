@@ -2,7 +2,7 @@
 #   http://defunkt.github.com/hub/
 #
 
-alias git='/usr/local/bin/hub'
+#alias git='/usr/local/bin/hub'
 
 # The rest of my fun git aliases
 alias gl='git pull --prune'
