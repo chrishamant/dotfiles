@@ -10,10 +10,10 @@ export LC_CTYPE=en_US.UTF-8
 export MANPATH=$MANPATH
 
 
-if which tmux 2>&1 >/dev/null; then
-    # if no session is started, start a new session
-    test -z ${TMUX} && tmux attach || tmux new
-fi
+# if which tmux 2>&1 >/dev/null; then
+#     # if no session is started, start a new session
+#     test -z ${TMUX} && tmux attach || tmux new
+# fi
 
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
