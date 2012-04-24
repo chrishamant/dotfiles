@@ -209,3 +209,68 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
+
+# Misc app settings
+defaults write com.apple.DirectoryUtility "Show Advanced Items" 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad DragLock 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHandResting 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadMomentumScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDoubleTapGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerSwipe 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHandResting 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadMomentumScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDoubleTapGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerSwipe 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHandResting 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadMomentumScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadScroll 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDoubleTapGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerSwipe 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture 1
+defaults write com.apple.finder ShowHardDrivesOnDesktop 0
+defaults write com.apple.finder ShowMountedServersOnDesktop 1
+

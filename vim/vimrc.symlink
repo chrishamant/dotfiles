@@ -79,6 +79,9 @@ nnoremap <leader>- :split<cr><C-w>k
 "NerdTree
 map <leader>n :NERDTreeToggle<cr>
 
+"tagbar
+map <leader>t :TagbarToggle<cr>
+
 "easy switching between buffers
 nnoremap <leader><leader> <c-^>
 
@@ -130,7 +133,7 @@ endif
 
 set list
 set listchars=nbsp:·,trail:·,tab:▸\ ,eol:¬
-
+set wildignore+=*.o,*.obj,.git,*.pyc
 " ----------------------------------------------------------------------------
 " Visual Cues
 " ----------------------------------------------------------------------------
