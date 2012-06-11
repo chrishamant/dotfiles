@@ -73,3 +73,6 @@
 [submodule "vim/vim.symlink/bundle/vimux"]
 	path = vim/vim.symlink/bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "vim/vim.symlink/bundle/grails-vim"]
+	path = vim/vim.symlink/bundle/grails-vim
+	url = https://github.com/NathanNeff/grails-vim.git

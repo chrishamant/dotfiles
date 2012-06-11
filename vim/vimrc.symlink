@@ -180,3 +180,5 @@ if executable('coffeetags')
         \ }
         \ }
 endif
+
+au BufNewFile,BufRead *.zul set filetype=xml
