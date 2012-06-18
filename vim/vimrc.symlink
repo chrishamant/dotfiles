@@ -160,6 +160,36 @@ map ,s :call StripWhitespace ()<CR>
 "autocmd examples
 "autocmd filetype python set expandtab
 
+" Whitespace helper from http://vimcasts.org/episodes/tabs-and-spaces/
+" Set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=* Stab call Stab()
+function! Stab()
+  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  if l:tabstop > 0
+    let &l:sts = l:tabstop
+    let &l:ts = l:tabstop
+    let &l:sw = l:tabstop
+  endif
+  call SummarizeTabs()
+endfunction
+
+function! SummarizeTabs()
+  try
+    echohl ModeMsg
+    echon 'tabstop='.&l:ts
+    echon ' shiftwidth='.&l:sw
+    echon ' softtabstop='.&l:sts
+    if &l:et
+      echon ' expandtab'
+    else
+      echon ' noexpandtab'
+    endif
+  finally
+    echohl None
+  endtry
+endfunction
+
+
 if has('autocmd')
   autocmd FileType mvn_pom setlocal ts=4 sts=4 sw=4 noexpandtab
 endif
