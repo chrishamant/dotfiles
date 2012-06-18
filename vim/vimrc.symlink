@@ -16,9 +16,6 @@ if has("autocmd")
 endif
 
 set hidden
-
-
-
 set encoding=utf-8
 " ----------------------------------------------------------------------------
 "  Text Formatting
@@ -128,7 +125,10 @@ set t_Co=256
 
 colorscheme twilight256
 if has("gui_running")
-    colorscheme desert
+  set guioptions=aegimrLt
+  set guifont=Menlo_Regular:h14
+  colorscheme desert256
+  set transparency=15
 endif
 
 set list
@@ -160,9 +160,9 @@ map ,s :call StripWhitespace ()<CR>
 "autocmd examples
 "autocmd filetype python set expandtab
 
-"if has('autocmd')
-"    ...
-"endif
+if has('autocmd')
+  autocmd FileType mvn_pom setlocal ts=4 sts=4 sw=4 noexpandtab
+endif
 
 "setup coffeetags
 if executable('coffeetags')
