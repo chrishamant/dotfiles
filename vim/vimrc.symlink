@@ -33,6 +33,8 @@ set smarttab
 set formatoptions+=n       " support for numbered/bullet lists
 "set textwidth=80           " wrap at 80 chars by default
 
+let g:Powerline_symbols = 'fancy'
+
 " ----------------------------------------------------------------------------
 "  Remapping
 " ----------------------------------------------------------------------------
@@ -192,6 +194,7 @@ endfunction
 
 if has('autocmd')
   autocmd FileType mvn_pom setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType ftl setlocal ts=4 sts=4 sw=4 noexpandtab
 endif
 
 "setup coffeetags
@@ -212,3 +215,5 @@ if executable('coffeetags')
 endif
 
 au BufNewFile,BufRead *.zul set filetype=xml
+au BufNewFile,BufRead *.ftl set filetype=ftl
+
