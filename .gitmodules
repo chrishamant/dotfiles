@@ -82,3 +82,6 @@
 [submodule "vim/vim.symlink/bundle/solarized"]
 	path = vim/vim.symlink/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/vim.symlink/bundle/mustache"]
+	path = vim/vim.symlink/bundle/mustache
+	url = https://github.com/juvenn/mustache.vim.git
