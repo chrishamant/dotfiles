@@ -91,3 +91,6 @@
 [submodule "vim/vim.symlink/bundle/vim-editorconfig"]
 	path = vim/vim.symlink/bundle/vim-editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "vim/vim.symlink/bundle/vim-wiki"]
+	path = vim/vim.symlink/bundle/vim-wiki
+	url = https://github.com/vim-scripts/vimwiki.git
