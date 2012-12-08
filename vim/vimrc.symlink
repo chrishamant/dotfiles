@@ -217,3 +217,7 @@ endif
 au BufNewFile,BufRead *.zul set filetype=xml
 au BufNewFile,BufRead *.ftl set filetype=ftl
 
+" vimwiki stuffs
+let g:vimwiki_list = [
+\ {'path': '~/.wiki', 'syntax': 'markdown'}
+\]
