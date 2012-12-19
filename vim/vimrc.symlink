@@ -1,12 +1,19 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+set nocompatible
 
-call pathogen#infect()
-syntax on
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"bundle love
+Bundle 'gmarik/vundle'
+
+
 filetype plugin indent on
+syntax on
 
 set noswapfile
 set nobackup
-set nocompatible
 set gdefault
 
 
