@@ -196,10 +196,10 @@ set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
 set ignorecase             " ignore case when searching
 set hlsearch               " highlight searches
-set relativenumber
 set visualbell             " shut the fuck up
 
-
+set foldmethod=syntax
+set foldlevelstart=99
 " ---------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
 " ---------------------------------------------------------------------------
@@ -273,3 +273,4 @@ let g:vimwiki_list = [
 \]
 
 let g:neocomplcache_enable_at_startup = 1
+set relativenumber " why does it this always get messed up by something
