@@ -43,3 +43,4 @@ vim/vim.symlink/bundle/supertab
 vim/vim.symlink/bundle/vim-bundler
 vim/vim.symlink/bundle/vim-indent-guides
 vim/vim.symlink/bundle/vim-rake
+vim/vim.symlink/bundle/vim-slim

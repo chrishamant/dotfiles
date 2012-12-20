@@ -50,6 +50,7 @@ Bundle 'othree/html5.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Raimondi/delimitMate'
 Bundle 'gregsexton/MatchTag'
+Bundle 'bbommarito/vim-slim'
 
 
 filetype plugin indent on
@@ -198,8 +199,11 @@ set ignorecase             " ignore case when searching
 set hlsearch               " highlight searches
 set visualbell             " shut the fuck up
 
-set foldmethod=syntax
 set foldlevelstart=99
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=syntax
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
 " ---------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
 " ---------------------------------------------------------------------------
