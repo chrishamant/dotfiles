@@ -48,3 +48,6 @@ haskell/cabal.symlink/packages
 haskell/cabal.symlink/share
 haskell/cabal.symlink/logs
 haskell/cabal.symlink/lib
+vim/vim.symlink/bundle/go-vim
+vim/vim.symlink/bundle/aspnetcs
+vim/vim.symlink/bundle/gocode

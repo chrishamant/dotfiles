@@ -40,7 +40,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'juvenn/mustache.vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'editorconfig/editorconfig-vim'
-Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -51,6 +50,9 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Raimondi/delimitMate'
 Bundle 'gregsexton/MatchTag'
 Bundle 'bbommarito/vim-slim'
+Bundle 'uggedal/go-vim'
+Bundle 'nsf/gocode',{'rtp': 'vim/'}
+Bundle 'vim-scripts/aspnetcs'
 
 
 filetype plugin indent on
@@ -276,5 +278,7 @@ let g:vimwiki_list = [
 \ {'path': '~/.wiki', 'syntax': 'markdown'}
 \]
 
+set ofu=syntaxcomplete#Complete
 let g:neocomplcache_enable_at_startup = 1
+
 set relativenumber " why does it this always get messed up by something

@@ -45,7 +45,7 @@ compinit
 eval "$(npm completion 2>/dev/null)"
 
 # load every completion after autocomplete loads
-for config_file ($ZSH/**/completion.sh) source $config_file
+#for config_file ($ZSH/**/completion.sh) source $config_file
 
 PATH="$PATH:$GOROOT/bin"
 
