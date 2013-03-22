@@ -18,3 +18,4 @@ set show-all-if-ambiguous on
 set visible-stats on
 set -o vi
 
+set editing-mode vi
