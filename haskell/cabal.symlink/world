@@ -1,3 +1,4 @@
+cabal-install -any
 pandoc -any
 c2hs -any
 git-annex -any

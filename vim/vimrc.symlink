@@ -49,10 +49,12 @@ Bundle 'othree/html5.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Raimondi/delimitMate'
 Bundle 'gregsexton/MatchTag'
-Bundle 'bbommarito/vim-slim'
+Bundle 'slim-template/vim-slim'
 Bundle 'uggedal/go-vim'
 Bundle 'nsf/gocode',{'rtp': 'vim/'}
 Bundle 'vim-scripts/aspnetcs'
+Bundle 'matthias-guenther/hammer.vim'
+Bundle 'sjl/clam.vim'
 
 
 filetype plugin indent on
@@ -277,6 +279,18 @@ au BufNewFile,BufRead *.ftl set filetype=ftl
 let g:vimwiki_list = [
 \ {'path': '~/.wiki', 'syntax': 'markdown'}
 \]
+
+
+" Search Dash for word under cursor
+function! SearchDash()
+  let s:browser = "/usr/bin/open"
+  let s:wordUnderCursor = expand("<cword>")
+  let s:url = "dash://".s:wordUnderCursor
+  let s:cmd ="silent ! " . s:browser . " " . s:url
+  execute s:cmd
+  redraw!
+endfunction
+map <leader>d :call SearchDash()<CR>
 
 set ofu=syntaxcomplete#Complete
 let g:neocomplcache_enable_at_startup = 1
