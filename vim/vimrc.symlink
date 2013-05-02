@@ -55,6 +55,7 @@ Bundle 'nsf/gocode',{'rtp': 'vim/'}
 Bundle 'vim-scripts/aspnetcs'
 Bundle 'matthias-guenther/hammer.vim'
 Bundle 'sjl/clam.vim'
+Bundle 'StanAngeloff/php.vim'
 
 
 filetype plugin indent on
@@ -253,6 +254,7 @@ endfunction
 if has('autocmd')
   autocmd FileType mvn_pom setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType ftl setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType php setlocal ts=4 sts=4 sw=4 expandtab foldmethod=manual
 endif
 
 "setup coffeetags

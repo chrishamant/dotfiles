@@ -2,6 +2,7 @@
 export ZSH=$HOME/src/dotfiles
 
 export PATH="./bin:$ZSH/bin:$HOME/bin:~/.cabal/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH"
+export PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export EDITOR='mvim'
 export SVN_EDITOR=$EDITOR
@@ -41,8 +42,13 @@ fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
-compinit
+compinit -u
 eval "$(npm completion 2>/dev/null)"
+
+source aws_zsh_completer.sh
+
+pushd;cd /Users/chris/src/vendor/ansible;source hacking/env-setup;popd;
+
 
 # load every completion after autocomplete loads
 #for config_file ($ZSH/**/completion.sh) source $config_file
