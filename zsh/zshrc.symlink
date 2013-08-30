@@ -1,20 +1,30 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/src/dotfiles
+TMPZSH=~/.tmpzsh
 
-export PATH="./bin:$ZSH/bin:$HOME/bin:~/.cabal/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH"
-export PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export EDITOR='mvim'
-export SVN_EDITOR=$EDITOR
-export LOAD_PATH=$LOAD_PATH
-export LC_CTYPE=en_US.UTF-8
-export MANPATH=$MANPATH
+eval "$(rbenv init -)"
 
+ruby > $TMPZSH <<RUBY
+require 'yaml'
+data = YAML.load_file('$HOME/.dotfiles/exports.yml')
+data.each do |key, value|
+  if value.kind_of?(Array)
+    value = value.join ':'
+  end
+  puts "export #{key}=\"#{value.strip}\""
+end
+RUBY
 
-# if which tmux 2>&1 >/dev/null; then
-#     # if no session is started, start a new session
-#     test -z ${TMUX} && tmux attach || tmux new
-# fi
+. $TMPZSH
+
+ruby > $TMPZSH <<RUBY
+require 'yaml'
+data = YAML.load_file('$HOME/.dotfiles/aliases.yml')
+data.each do |key, value|
+  puts "alias #{key}='#{value.strip}'"
+end
+RUBY
+
+. $TMPZSH
+rm $TMPZSH
 
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
@@ -27,8 +37,6 @@ then
   alias la='gls -A --color'
 fi
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/src
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
@@ -47,13 +55,10 @@ eval "$(npm completion 2>/dev/null)"
 
 source aws_zsh_completer.sh
 
-pushd;cd /Users/chris/src/vendor/ansible;source hacking/env-setup;popd;
+function tmw {
+      tmux split-window -dh "$*"
+}
 
 
-# load every completion after autocomplete loads
-#for config_file ($ZSH/**/completion.sh) source $config_file
-
-
-eval "$(rbenv init -)"
 clear
 fortune

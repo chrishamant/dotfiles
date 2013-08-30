@@ -1,0 +1,87 @@
+---
+  reload : . ~/.zshrc
+  awk : mawk
+  cls : clear
+  killsh : killall ssh
+  ta : tmux attach-session
+  more : less
+  dnsflush : dscacheutil -flushcache
+
+  rsync : rsync -r -t -v
+  sls : screen -ls
+
+
+  #  # N-Triples aliases from http://blog.datagraph.org/2010/03/grepping-ntriples
+  #  rdf-count : awk "/^\s*[^#]/ { n += 1 } END { print n }"
+  #  rdf-lengths : awk "/^\s*[^#]/ { print length }"
+  #  rdf-length-avg : awk "/^\s*[^#]/ { n += 1; s += length } END { print s/n }"
+  #  rdf-length-max : awk "BEGIN { n=0 } /^\s*[^#]/ { if (length>n) n=length } END { print n }"
+  #  rdf-length-min : |
+  #     awk "BEGIN { n=1e9 } /^\s*[^#]/ { if (length>0 && length<n) n=length } END { print (n<1e9 ? n : 0) }"
+  #  rdf-subjects : awk "/^\s*[^#]/ { print \$1 }" | uniq
+  #  rdf-predicates : awk "/^\s*[^#]/ { print \$2 }" | uniq
+  #  rdf-objects : awk \'/^\s*[^#]/ { ORS=\"\"; for (i=3;i<=NF-1;i++) print \$i \" \"; print \"\n\" }\' | uniq
+  #  rdf-datatypes : awk -F\'\x5E\' \'/\"\^\^</ { print substr(\$3, 2, length(\$3)-4) }\' | uniq
+
+
+  # rapper aliases from http://blog.datagraph.org/2010/04/transmuting-ntriples
+  any2nt : rapper -i guess -o ntriples
+  any2ttl : rapper -i guess -o turtle
+  any2rdf : rapper -i guess -o rdfxml-abbrev
+  any2json : rapper -i guess -o json
+  nt2ttl : rapper -i ntriples -o turtle
+  nt2rdf : rapper -i ntriples -o rdfxml-abbrev
+  nt2json : rapper -i ntriples -o json
+  ttl2nt : rapper -i turtle -o ntriples
+  ttl2rdf : rapper -i turtle -o rdfxml-abbrev
+  ttl2json : rapper -i turtle -o json
+  rdf2nt : rapper -i rdfxml -o ntriples
+  rdf2ttl : rapper -i rdfxml -o turtle
+  rdf2json : rapper -i rdfxml -o json
+  json2nt : rapper -i json -o ntriples
+  json2ttl : rapper -i json -o ntriples
+  json2rdf : rapper -i json -o ntriples
+
+
+    # Quick switch to jruby
+  j : rbenv shell jruby-1.7.1
+  jng : export JRUBY_OPTS="--ng"
+  jngclear : export JRUBY_OPTS=""
+  ngup : ruby --ng-server &!
+  ngdn : ng ng-stop
+
+
+  # Git Rel
+  glog : |
+    git log --graph --pretty=format:"%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset" --abbrev-commit --date=relative
+  gp : git push origin HEAD
+  gd : git diff
+  gc : git commit
+  gca : git commit -a
+  gcam : git commit -a -m
+  gco : git checkout
+  gb : git branch
+  gs : git status -sb
+  grm : git status | grep deleted | awk "{print \$3}" | xargs git rm
+
+  # grc overides for ls
+  #   Made possible through contributions from generous benefactors like
+  #   `brew install coreutils`
+  ls : gls -F --color
+  l : gls -lAh --color
+  ll : gls -l --color
+  la : gls -A --color
+
+  es-up : launchctl load -w ~/Library/LaunchAgents/org.elasticsearch.plist
+  es-down : launchctl unload -w ~/Library/LaunchAgents/org.elasticsearch.plist
+  couch-up : launchctl load -w ~/Library/LaunchAgents/org.apache.couchdb.plist
+  couch-down : launchctl unload -w ~/Library/LaunchAgents/org.apache.couchdb.plist
+  pg-up : pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+  pg-down : pg_ctl -D /usr/local/var/postgres stop -s -m fast
+  redis-up : redis-server /usr/local/etc/redis.conf > /dev/null &
+  redis-down : killall redis-server
+  nginx-up : sudo nginx -c ~/.dotfiles/nginx/nginx.conf
+  nginx-down : sudo nginx -s stop
+  mongo-up : launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+  mongo-down : launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+
