@@ -3,6 +3,7 @@ set nocompatible
 "runtime bundle/vim-pathogen/autoload/pathogen.vim
 "call pathogen#infect()
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=$GOROOT/misc/vim
 call vundle#rc()
 
 "bundle love
@@ -31,7 +32,8 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'mattn/webapi-vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'majutsushi/tagbar'
 Bundle 'benmills/vimux'
 Bundle 'NathanNeff/grails-vim'
@@ -50,12 +52,13 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Raimondi/delimitMate'
 Bundle 'gregsexton/MatchTag'
 Bundle 'slim-template/vim-slim'
-Bundle 'uggedal/go-vim'
-Bundle 'nsf/gocode',{'rtp': 'vim/'}
+Bundle 'fsouza/go.vim'
 Bundle 'vim-scripts/aspnetcs'
 Bundle 'matthias-guenther/hammer.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'StanAngeloff/php.vim'
+Bundle 'evidens/vim-twig'
+Bundle 'msanders/cocoa.vim'
 
 
 filetype plugin indent on
@@ -89,7 +92,8 @@ set smarttab
 set formatoptions+=n       " support for numbered/bullet lists
 "set textwidth=80           " wrap at 80 chars by default
 
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
+"let g:airline_powerline_fonts=0
 
 " ----------------------------------------------------------------------------
 "  Remapping
@@ -106,6 +110,7 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -274,6 +279,50 @@ if executable('coffeetags')
         \ }
 endif
 
+" add a definition for Objective-C to tagbar
+let g:tagbar_type_objc = {
+    \ 'ctagstype' : 'objc',
+    \ 'ctagsargs': [
+        \ '--options='.expand('~/.vim/tags/ctags-options-objc-source'),
+        \ '--objc-kinds=-N',
+        \ '--format=2',
+        \ '--excmd=pattern',
+        \ '--extra=',
+        \ '--fields=nksaSmt',
+        \ '-f -'
+    \ ],
+    \ 'kinds'     : [
+        \ 'i:interface',
+        \ 'I:implementation',
+        \ 'p:Protocol',
+        \ 'm:Object_method',
+        \ 'c:Class_method',
+        \ 'v:Global_variable',
+        \ 'F:Object field',
+        \ 'f:function',
+        \ 'p:property',
+        \ 't:type_alias',
+        \ 's:type_structure',
+        \ 'e:enumeration',
+        \ 'M:preprocessor_macro',
+    \ ],
+    \ 'sro'        : ' ',
+    \ 'kind2scope' : {
+        \ 'i' : 'interface',
+        \ 'I' : 'implementation',
+        \ 'p' : 'Protocol',
+        \ 's' : 'type_structure',
+        \ 'e' : 'enumeration'
+    \ },
+    \ 'scope2kind' : {
+        \ 'interface'      : 'i',
+        \ 'implementation' : 'I',
+        \ 'Protocol'       : 'p',
+        \ 'type_structure' : 's',
+        \ 'enumeration'    : 'e'
+    \ }
+\ }
+
 au BufNewFile,BufRead *.zul set filetype=xml
 au BufNewFile,BufRead *.ftl set filetype=ftl
 
@@ -298,3 +347,6 @@ set ofu=syntaxcomplete#Complete
 let g:neocomplcache_enable_at_startup = 1
 
 set relativenumber " why does it this always get messed up by something
+
+autocmd BufWritePre *.go :silent Fmt
+
