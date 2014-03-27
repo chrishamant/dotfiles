@@ -1,30 +1,26 @@
 TMPZSH=~/.tmpzsh
 
-eval "$(rbenv init -)"
-
-ruby > $TMPZSH <<RUBY
-require 'yaml'
-data = YAML.load_file('$HOME/.dotfiles/exports.yml')
-data.each do |key, value|
-  if value.kind_of?(Array)
-    value = value.join ':'
-  end
-  puts "export #{key}=\"#{value.strip}\""
-end
-RUBY
-
-. $TMPZSH
-
-ruby > $TMPZSH <<RUBY
-require 'yaml'
-data = YAML.load_file('$HOME/.dotfiles/aliases.yml')
-data.each do |key, value|
-  puts "alias #{key}='#{value.strip}'"
-end
-RUBY
+pushd
+cd .dotfiles
+/usr/local/bin/node > $TMPZSH <<YAMLCONFIG
+require('js-yaml');
+var exprts = require('./exports.yml');
+var aliases = require('./aliases.yml');
+for(key in exprts){
+  var val = exprts[key];
+  if(key == "PATH" || key == "MANPATH"){
+    val = val.join(":");
+  }
+  console.log("export %s=\"%s\"",key,val.trim());
+}
+for(key in aliases){
+  console.log("alias %s=\"%s\"",key,aliases[key].trim());
+}
+YAMLCONFIG
 
 . $TMPZSH
 rm $TMPZSH
+popd
 
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
@@ -37,6 +33,9 @@ then
   alias la='gls -A --color'
 fi
 
+eval "$(rbenv init -)"
+
+autoload -U compinit
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
@@ -45,20 +44,18 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
 then
-  source ~/.localrc
+  . ~/.localrc
 fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit -u
-eval "$(npm completion 2>/dev/null)"
-
-source aws_zsh_completer.sh
 
 function tmw {
       tmux split-window -dh "$*"
 }
 
+compinit -u
+source aws_zsh_completer.sh
+eval "$(npm completion 2>/dev/null)"
 
 clear
 fortune

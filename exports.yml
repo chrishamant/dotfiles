@@ -1,25 +1,18 @@
 ---
 ZSH : $HOME/src/dotfiles
 
-GOPATH : ~/src/gopath
-LSCOLORS : exfxcxdxbxegedabagacad
-CLICOLOR : "true"
-GOROOT : $(brew --prefix go)
-EDITOR : mvim
-SVN_EDITOR : $EDITOR
-LOAD_PATH : $LOAD_PATH
-LC_CTYPE : en_US.UTF-8
-
 PATH :
   - ./bin
   - $HOME/bin
+  - $HOME/Applications/Postgres.app/Contents/MacOS/bin
   - $ZSH/bin
   - $GOPATH/bin
-  - ~/.cabal/bin
+  - /usr/local/share/npm/bin
+  - $HOME/.cabal/bin
+  - $(/usr/local/bin/brew --prefix josegonzalez/php/php54)/bin
+  - $HOME/.rbenv/shims:${PATH}
   - /usr/local/bin
   - /usr/local/sbin
-  - /usr/local/share/npm/bin
-  - $(brew --prefix josegonzalez/php/php54)/bin
   - $PATH
 
 MANPATH :
@@ -30,10 +23,20 @@ MANPATH :
 
 JAVA_HOME : /Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home
 JAVA_OPTS : >
-  -Xms512m -Xmx1024m -XX:PermSize=768m -XX:MaxPermSize=2048m
+  -Xms512m -Xmx2048m -XX:PermSize=768m -XX:MaxPermSize=2048m
 NODE_PATH : /usr/local/lib/node:/usr/local/lib/node_modules
+GOROOT : $(brew --prefix go)
+GOPATH : $HOME/src/gopath
+LSCOLORS : exfxcxdxbxegedabagacad
+CLICOLOR : "true"
+EDITOR : mvim
+SVN_EDITOR : $EDITOR
+LOAD_PATH : $LOAD_PATH
+LC_CTYPE : en_US.UTF-8
+PYTHONPATH : /usr/local/lib/python2.7/site-packages:$PYTHONPATH
+N_PREFIX : /Users/chris/bin
 
 
 # your project folder that we can `c [tab]` to
-PROJECTS : ~/src
+PROJECTS : $HOME/src
 

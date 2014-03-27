@@ -59,6 +59,7 @@ Bundle 'sjl/clam.vim'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'evidens/vim-twig'
 Bundle 'msanders/cocoa.vim'
+Bundle 'ledger/vim-ledger'
 
 
 filetype plugin indent on

@@ -1,0 +1,25 @@
+# List
+pass
+pass ls
+
+# Show
+pass Email/foo.com
+
+# Copy to clipboard
+pass -c Email/zx2c4.com
+
+# Add
+pass insert foo/bar
+
+# Add multiline
+pass insert -m foo/bar
+
+# Generate
+pass generate foo/bar {length}
+
+# Generate new alphanumeric
+pass -n generate foo/bar {length}
+
+# Remove
+pass remove foo/bar
+

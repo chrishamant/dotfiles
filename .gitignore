@@ -52,3 +52,4 @@ vim/vim.symlink/bundle/go-vim
 vim/vim.symlink/bundle/aspnetcs
 vim/vim.symlink/bundle/gocode
 vim/vim.symlink/bundle/clam.vim
+node_modules
