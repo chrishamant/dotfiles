@@ -21,7 +21,7 @@ MANPATH :
   - /usr/local/git/man
   - $MANPATH
 
-JAVA_HOME : /Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home
+JAVA_HOME : /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
 JAVA_OPTS : >
   -Xms512m -Xmx2048m -XX:PermSize=768m -XX:MaxPermSize=2048m
 NODE_PATH : /usr/local/lib/node:/usr/local/lib/node_modules
