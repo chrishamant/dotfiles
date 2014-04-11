@@ -60,6 +60,8 @@ Bundle 'StanAngeloff/php.vim'
 Bundle 'evidens/vim-twig'
 Bundle 'msanders/cocoa.vim'
 Bundle 'ledger/vim-ledger'
+Bundle 'ledger/vim-ledger'
+Bundle 'elixir-lang/vim-elixir'
 
 
 filetype plugin indent on

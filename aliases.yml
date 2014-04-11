@@ -85,4 +85,5 @@
   dynamo-up : java -jar ~/bin/dynamodb_local_2013-09-12/DynamoDBLocal.jar
 
   ansible-source : pushd;cd /Users/chris/src/vendor/ansible;source hacking/env-setup > /dev/null 2>&1;popd;
+  java8 : JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home java
 

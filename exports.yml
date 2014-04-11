@@ -24,6 +24,9 @@ MANPATH :
 JAVA_HOME : /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
 JAVA_OPTS : >
   -Xms512m -Xmx2048m -XX:PermSize=768m -XX:MaxPermSize=2048m
+
+HIVE_HOME : /usr/local/Cellar/hive/0.12.0/libexec
+
 NODE_PATH : /usr/local/lib/node:/usr/local/lib/node_modules
 GOROOT : $(brew --prefix go)
 GOPATH : $HOME/src/gopath
