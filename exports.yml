@@ -1,15 +1,32 @@
 ---
 ZSH : $HOME/src/dotfiles
 
+JAVA_HOME : /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
+JAVA_OPTS : >
+  -Xms512m -Xmx2048m -XX:PermSize=768m -XX:MaxPermSize=2048m
+
+HIVE_HOME : /usr/local/Cellar/hive/0.12.0/libexec
+
+NODE_PATH : /usr/local/lib/node:/usr/local/lib/node_modules
+GOPATH : $HOME/src/gopath
+LSCOLORS : exfxcxdxbxegedabagacad
+CLICOLOR : "true"
+EDITOR : mvim
+SVN_EDITOR : $EDITOR
+LOAD_PATH : $LOAD_PATH
+LC_CTYPE : en_US.UTF-8
+PYTHONPATH : /usr/local/lib/python2.7/site-packages:$PYTHONPATH
+N_PREFIX : /Users/chris/bin
+
 PATH :
   - ./bin
   - $HOME/bin
-  - $HOME/Applications/Postgres.app/Contents/MacOS/bin
   - $ZSH/bin
   - $GOPATH/bin
   - /usr/local/share/npm/bin
   - $HOME/.cabal/bin
   - $(/usr/local/bin/brew --prefix josegonzalez/php/php54)/bin
+  - /Applications/Postgres.app/Contents/MacOS/bin
   - $HOME/.rbenv/shims:${PATH}
   - /usr/local/bin
   - /usr/local/sbin
@@ -21,23 +38,6 @@ MANPATH :
   - /usr/local/git/man
   - $MANPATH
 
-JAVA_HOME : /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
-JAVA_OPTS : >
-  -Xms512m -Xmx2048m -XX:PermSize=768m -XX:MaxPermSize=2048m
-
-HIVE_HOME : /usr/local/Cellar/hive/0.12.0/libexec
-
-NODE_PATH : /usr/local/lib/node:/usr/local/lib/node_modules
-GOROOT : $(brew --prefix go)
-GOPATH : $HOME/src/gopath
-LSCOLORS : exfxcxdxbxegedabagacad
-CLICOLOR : "true"
-EDITOR : mvim
-SVN_EDITOR : $EDITOR
-LOAD_PATH : $LOAD_PATH
-LC_CTYPE : en_US.UTF-8
-PYTHONPATH : /usr/local/lib/python2.7/site-packages:$PYTHONPATH
-N_PREFIX : /Users/chris/bin
 
 
 # your project folder that we can `c [tab]` to

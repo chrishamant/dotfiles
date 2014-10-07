@@ -1,0 +1,12 @@
+#Update
+UPDATE table_name
+SET col1 = val 1, col2 = val2...
+WHERE [condition];
+
+#HSTORE syntax
+attrs='"wtf"=>"ninja_shit"'
+
+#generate a series
+select * from generate_series(0,100) num;
+
+

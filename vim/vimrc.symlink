@@ -1,68 +1,66 @@
 set nocompatible
+filetype off
 
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
-"call pathogen#infect()
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=$GOROOT/misc/vim
-call vundle#rc()
+call vundle#begin()
 
-"bundle love
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'walm/jshint.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'davidoc/taskpaper.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-pathogen'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'mattn/webapi-vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'digitaltoad/vim-jade'
-"Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
-Bundle 'majutsushi/tagbar'
-Bundle 'benmills/vimux'
-Bundle 'NathanNeff/grails-vim'
-Bundle 'groenewege/vim-less'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'juvenn/mustache.vim'
-Bundle 'wavded/vim-stylus'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'vim-scripts/bufexplorer.zip'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'ervandew/supertab'
-Bundle 'gregsexton/gitv'
-Bundle 'othree/html5.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Raimondi/delimitMate'
-Bundle 'gregsexton/MatchTag'
-Bundle 'slim-template/vim-slim'
-Bundle 'fsouza/go.vim'
-Bundle 'vim-scripts/aspnetcs'
-Bundle 'matthias-guenther/hammer.vim'
-Bundle 'sjl/clam.vim'
-Bundle 'StanAngeloff/php.vim'
-Bundle 'evidens/vim-twig'
-Bundle 'msanders/cocoa.vim'
-Bundle 'ledger/vim-ledger'
-Bundle 'ledger/vim-ledger'
-Bundle 'elixir-lang/vim-elixir'
+"main vim
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/YouCompleteMe'
 
+"core functionality
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'benmills/vimux'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'vim-scripts/bufexplorer.zip'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+"programming langs
+Plugin 'othree/html5.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'NathanNeff/grails-vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-fireplace'
+Plugin 'fatih/vim-go'
+Plugin 'gregsexton/MatchTag'
+Plugin 'vim-scripts/paredit.vim'
+
+"template langs
+Plugin 'evidens/vim-twig'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'slim-template/vim-slim'
+Plugin 'wavded/vim-stylus'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'juvenn/mustache.vim'
+
+"misc
+Plugin 'tpope/vim-fugitive'
+Plugin 'gregsexton/gitv'
+Plugin 'ledger/vim-ledger'
+Plugin 'mattn/gist-vim'
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
@@ -93,10 +91,6 @@ set tabstop=4
 set expandtab              " expand tabs to spaces
 set smarttab
 set formatoptions+=n       " support for numbered/bullet lists
-"set textwidth=80           " wrap at 80 chars by default
-
-"let g:Powerline_symbols = 'fancy'
-"let g:airline_powerline_fonts=0
 
 " ----------------------------------------------------------------------------
 "  Remapping
@@ -346,10 +340,11 @@ function! SearchDash()
 endfunction
 map <leader>d :call SearchDash()<CR>
 
-set ofu=syntaxcomplete#Complete
-let g:neocomplcache_enable_at_startup = 1
-
 set relativenumber " why does it this always get messed up by something
 
-autocmd BufWritePre *.go :silent Fmt
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)

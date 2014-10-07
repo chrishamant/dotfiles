@@ -4,7 +4,6 @@
   cls : clear
   killsh : killall ssh
   ta : tmux attach-session
-  more : less
   dnsflush : dscacheutil -flushcache
 
   rsync : rsync -r -t -v

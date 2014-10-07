@@ -1,0 +1,5 @@
+# download 'calcsin-004' https://class.coursera.org/calcsing-004/lecture
+coursera-dl -d ~/Desktop/coursera/download calcsing-004
+
+#ignore .html et al
+coursera-dl -n html,srt,txt -d ~/Desktop/coursera/download calcsing-004
