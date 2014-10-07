@@ -12,10 +12,11 @@ git_dirty() {
   then
     echo ""
   else
-    if [[ $st == "nothing to commit (working directory clean)" ]]
+    if [[ $st == "no changes added to commit (use \"git add\" and/or \"git commit -a\")" ]]
     then
       echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
+      echo $st
       echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
