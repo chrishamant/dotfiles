@@ -24,8 +24,10 @@ PATH :
   - $ZSH/bin
   - $GOPATH/bin
   - /usr/local/share/npm/bin
+  - $HOME/.nimble/bin
   - $HOME/.cabal/bin
-  - $(/usr/local/bin/brew --prefix josegonzalez/php/php54)/bin
+  - $(/usr/local/bin/brew --prefix josegonzalez/php/php56)/bin
+  - $(/usr/local/bin/brew --prefix josegonzalez/php/php56)/sbin
   - /Applications/Postgres.app/Contents/MacOS/bin
   - $HOME/.rbenv/shims:${PATH}
   - /usr/local/bin

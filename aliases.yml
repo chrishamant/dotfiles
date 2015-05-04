@@ -22,21 +22,24 @@
   #  rdf-objects : awk \'/^\s*[^#]/ { ORS=\"\"; for (i=3;i<=NF-1;i++) print \$i \" \"; print \"\n\" }\' | uniq
   #  rdf-datatypes : awk -F\'\x5E\' \'/\"\^\^</ { print substr(\$3, 2, length(\$3)-4) }\' | uniq
 
-
   # rapper aliases from http://blog.datagraph.org/2010/04/transmuting-ntriples
   any2nt : rapper -i guess -o ntriples
   any2ttl : rapper -i guess -o turtle
   any2rdf : rapper -i guess -o rdfxml-abbrev
   any2json : rapper -i guess -o json
+
   nt2ttl : rapper -i ntriples -o turtle
   nt2rdf : rapper -i ntriples -o rdfxml-abbrev
   nt2json : rapper -i ntriples -o json
+
   ttl2nt : rapper -i turtle -o ntriples
   ttl2rdf : rapper -i turtle -o rdfxml-abbrev
   ttl2json : rapper -i turtle -o json
+
   rdf2nt : rapper -i rdfxml -o ntriples
   rdf2ttl : rapper -i rdfxml -o turtle
   rdf2json : rapper -i rdfxml -o json
+
   json2nt : rapper -i json -o ntriples
   json2ttl : rapper -i json -o ntriples
   json2rdf : rapper -i json -o ntriples
@@ -85,4 +88,6 @@
 
   ansible-source : pushd;cd /Users/chris/src/vendor/ansible;source hacking/env-setup > /dev/null 2>&1;popd;
   java8 : JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home java
+
+  vim : mvim -v
 

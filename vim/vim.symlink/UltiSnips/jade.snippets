@@ -1,0 +1,46 @@
+snippet label_pattern "Generic Label Pattern"
+.label
+  label(for="${1}")
+    .label_text
+      | ${2}
+  input#${4:$1}(type="text", name="${5:$1}", value="")
+endsnippet
+
+snippet site_scaffold "Large Site Scaffold"
+doctype html
+html(lang="en",version="HTML+RDFa 1.1",prefix="http${1}")
+  head
+    block head
+      title ${2}
+      meta(charset="utf-8")
+      meta(name="author",property="dc:creator",content="${3}")
+      meta(content="",name="description")
+      meta(content="",name="keywords")
+      link(rel="alternate",type="application/atom+xml",title="Content Feed",href="/atom.xml")
+      link(rel="stylesheet",href="/css/site.css")
+  body
+    block header
+      hgroup
+        h1
+          a(rel="homepage",href="/") Homepage
+    block content
+    block foot
+      footer
+        p.copyright(property="dc:rights")
+          | &copy;&nbsp;
+          span(property="dc:dateCopyrighted") XXXXXXXXXX
+          | &nbsp;
+          a(href="mailto:XXXXXXXX",property="dc:publisher") ${4:$3}
+          span.license
+            a(rel="cc:license",href="http://creativecommons.org/licenses/by-nc-sa/3.0/")
+              img(alt="Creative Commons License",style="border-width:0",src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png")
+    block scripts
+      script(src='/js/site.js')
+      script.
+        var _gaq = [['_setAccount', 'XXXXXXXXXX'],['_trackPageview']];
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = '//google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+endsnippet

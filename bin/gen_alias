@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+require('js-yaml');
+var exprts = require('../exports.yml');
+var aliases = require('../aliases.yml');
+for(key in exprts){
+  var val = exprts[key];
+  if(key == "PATH" || key == "MANPATH"){
+    val = val.join(":");
+  }
+  console.log("export %s=\"%s\"",key,val.trim());
+}
+for(key in aliases){
+  console.log("alias %s=\"%s\"",key,aliases[key].trim());
+}
+

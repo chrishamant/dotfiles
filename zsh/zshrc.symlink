@@ -1,26 +1,5 @@
 TMPZSH=~/.tmpzsh
-
-pushd
-cd .dotfiles
-/usr/local/bin/node > $TMPZSH <<YAMLCONFIG
-require('js-yaml');
-var exprts = require('./exports.yml');
-var aliases = require('./aliases.yml');
-for(key in exprts){
-  var val = exprts[key];
-  if(key == "PATH" || key == "MANPATH"){
-    val = val.join(":");
-  }
-  console.log("export %s=\"%s\"",key,val.trim());
-}
-for(key in aliases){
-  console.log("alias %s=\"%s\"",key,aliases[key].trim());
-}
-YAMLCONFIG
-
 . $TMPZSH
-rm $TMPZSH
-popd
 
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
@@ -32,8 +11,6 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
-
-eval "$(rbenv init -)"
 
 autoload -U compinit
 
@@ -55,14 +32,16 @@ function tmw {
 
 compinit -u
 source aws_zsh_completer.sh
-eval "$(npm completion 2>/dev/null)"
-[ -s "/Users/chris/.nvm/nvm.sh" ] && . "/Users/chris/.nvm/nvm.sh" # This loads nvm
+#eval "$(npm completion 2>/dev/null)"
+#[ -s "/Users/chris/.nvm/nvm.sh" ] && . "/Users/chris/.nvm/nvm.sh" # This loads nvm
+
+#eval "$(rbenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
-source /Users/chris/src/vendor/google-cloud-sdk/path.zsh.inc
+#source /Users/chris/src/vendor/google-cloud-sdk/path.zsh.inc
 
 # The next line enables bash completion for gcloud.
-source /Users/chris/src/vendor/google-cloud-sdk/completion.zsh.inc
+#source /Users/chris/src/vendor/google-cloud-sdk/completion.zsh.inc
 
 clear
 fortune

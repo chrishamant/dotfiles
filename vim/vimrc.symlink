@@ -42,8 +42,13 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'fatih/vim-go'
 Plugin 'gregsexton/MatchTag'
 Plugin 'vim-scripts/paredit.vim'
+Plugin 'Keithbsmiley/swift.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'zah/nimrod.vim'
+Plugin 'kentaroi/cocoa.vim'
 
 "template langs
+Plugin 'cespare/vim-toml'
 Plugin 'evidens/vim-twig'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'slim-template/vim-slim'
@@ -59,11 +64,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
 Plugin 'ledger/vim-ledger'
 Plugin 'mattn/gist-vim'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 call vundle#end()
 
 filetype plugin indent on
-syntax on
+"syntax on
 
 set noswapfile
 set nobackup
@@ -180,11 +188,11 @@ set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 set ttyfast
 
-" sets colors
-set t_Co=256
 
-colorscheme twilight256
-if has("gui_running")
+" sets colors
+  set t_Co=256
+  colorscheme twilight256
+  if has("gui_running")
   set guioptions=aegimrLt
   set guifont=Menlo_Regular:h14
   colorscheme desert256
@@ -322,6 +330,7 @@ let g:tagbar_type_objc = {
 
 au BufNewFile,BufRead *.zul set filetype=xml
 au BufNewFile,BufRead *.ftl set filetype=ftl
+au BufNewFile,BufRead *.ace set filetype=jade
 
 " vimwiki stuffs
 let g:vimwiki_list = [
@@ -348,3 +357,16 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+autocmd User GoyoEnter Limelight
+autocmd User GoyoLeave Limelight!
