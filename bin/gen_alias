@@ -1,7 +1,11 @@
 #!/usr/bin/env node
-require('js-yaml');
-var exprts = require('../exports.yml');
-var aliases = require('../aliases.yml');
+var yaml = require('js-yaml');
+var fs = require('fs');
+
+var exprts_files = fs.readFileSync('../exports.yml');
+var alias_files = fs.readFileSync('../aliases.yml');
+var exprts = yaml.load(exprts_files);
+var aliases = yaml.load(alias_files);
 for(key in exprts){
   var val = exprts[key];
   if(key == "PATH" || key == "MANPATH"){

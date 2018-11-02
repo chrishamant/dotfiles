@@ -64,7 +64,16 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n%m λ '
+aws_profile(){
+  if [ ! -z $AWS_PROFILE ]
+  then
+    echo "%{$fg_bold[green]%}AWS:$AWS_PROFILE%{$reset_color%}"
+  else
+    echo ""
+  fi
+}
+
+export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)$(aws_profile)\n%m λ '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }

@@ -1,10 +1,10 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 "main vim
 Plugin 'kien/ctrlp.vim'
@@ -46,6 +46,10 @@ Plugin 'Keithbsmiley/swift.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'zah/nimrod.vim'
 Plugin 'kentaroi/cocoa.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'z3t0/arduvim'
+Plugin 'udalov/kotlin-vim'
+Bundle 'Rykka/riv.vim'
 
 "template langs
 Plugin 'cespare/vim-toml'
@@ -190,11 +194,12 @@ set ttyfast
 
 
 " sets colors
-  set t_Co=256
-  colorscheme twilight256
-  if has("gui_running")
+set t_Co=256
+colorscheme twilight256
+
+if has("gui_running")
   set guioptions=aegimrLt
-  set guifont=Menlo_Regular:h14
+  set guifont=Iosevka_Term:h16
   colorscheme desert256
   set transparency=15
 endif
@@ -262,6 +267,7 @@ endfunction
 
 
 if has('autocmd')
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType mvn_pom setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType ftl setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType php setlocal ts=4 sts=4 sw=4 expandtab foldmethod=manual
@@ -283,6 +289,21 @@ if executable('coffeetags')
         \ }
         \ }
 endif
+
+" add a definition for rust to tagbar
+ let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits,traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
 
 " add a definition for Objective-C to tagbar
 let g:tagbar_type_objc = {
@@ -331,6 +352,8 @@ let g:tagbar_type_objc = {
 au BufNewFile,BufRead *.zul set filetype=xml
 au BufNewFile,BufRead *.ftl set filetype=ftl
 au BufNewFile,BufRead *.ace set filetype=jade
+au BufRead,BufNewFile *.pde set filetype=cpp
+au BufRead,BufNewFile *.ino set filetype=cpp
 
 " vimwiki stuffs
 let g:vimwiki_list = [
@@ -370,3 +393,7 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 autocmd User GoyoEnter Limelight
 autocmd User GoyoLeave Limelight!
+
+
+autocmd FileType javascript set formatprg=prettier\ --stdin
+
